@@ -146,7 +146,7 @@
       "category": "marketing",
       "due": "2026-11-15",
       "done": false,
-      "note": "Book their tasting slots from 1 Dec."
+      "note": "Book their tasting slots from 7 Dec."
     },
     {
       "id": "mkt-reservation",
@@ -203,15 +203,16 @@
       "due": "2026-12-05",
       "done": false,
       "added": true,
-      "note": "Run 2–3 full dry-run services before opening."
+      "note": "Run 2–3 full dry-run services before the first KOL seating."
     },
     {
       "id": "setup-licence",
-      "title": "DBKL premise & signboard licence applied",
+      "title": "DBKL premise & signboard licence approved",
       "category": "setup",
-      "due": "2026-10-20",
+      "due": "2026-11-30",
       "done": false,
-      "added": true
+      "added": true,
+      "note": "Submit by mid-Nov so the inspection can happen right after handover. Check with Pavilion management what they handle."
     },
     {
       "id": "setup-liquor",
@@ -231,15 +232,8 @@
       "note": "Book the internet line early. Installation takes 2–3 weeks."
     },
     {
-      "id": "launch-kol",
-      "title": "KOL tastings begin",
-      "category": "launch",
-      "due": "2026-12-01",
-      "done": false
-    },
-    {
       "id": "launch-opening",
-      "title": "Opening — start serving",
+      "title": "Opening — start serving & KOL tastings",
       "category": "launch",
       "due": "2026-12-07",
       "done": false

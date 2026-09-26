@@ -12,37 +12,36 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Noto+Serif+JP:wght@500&display=swap">
 <style>
 :root{
-  --bg:#faf7f2; --surface:#ffffff; --ink:#2b1b12; --ink-2:#5c4636; --muted:#8c7562;
-  --line:#ece3d6; --line-2:#dccdb8; --accent:#8a5a34; --accent-bg:#f3e9dc;
-  --ok:#1f7a4d; --ok-bg:#e3f4ea; --warn:#9a5b00; --warn-bg:#fdf1dc; --bad:#c0362c; --bad-bg:#fde8e6;
+  --bg:#ffffff; --surface:#ffffff; --band:#faf6f0; --ink:#2b1b12; --ink-2:#5c4636; --muted:#8c7562;
+  --line:#ece3d6; --line-2:#dccdb8; --accent:#8a5a34; --accent-bg:#f6eee3;
+  --ok:#3f7a4a; --ok-bg:#e6f2e7; --warn:#9a5b00; --warn-bg:#fdf1dc; --bad:#b3362b; --bad-bg:#fbe6e3;
   --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#1c120c; --surface:#2b1b12; --ink:#f5f0e7; --ink-2:#d6c2a9; --muted:#a8927c;
+  --bg:#1c120c; --surface:#231710; --band:#2b1b12; --ink:#f5f0e7; --ink-2:#d6c2a9; --muted:#a8927c;
   --line:#3d2a1e; --line-2:#56402f; --accent:#d6a878; --accent-bg:#3a271a;
-  --ok:#6fd19b; --ok-bg:#15301f; --warn:#f0b75e; --warn-bg:#35270f; --bad:#f28b82; --bad-bg:#3a1a18;
+  --ok:#8fc79a; --ok-bg:#1f2e20; --warn:#f0b75e; --warn-bg:#35270f; --bad:#f28b82; --bad-bg:#3a1a18;
   color-scheme:dark;
 }}
 :root[data-theme="dark"]{
-  --bg:#1c120c; --surface:#2b1b12; --ink:#f5f0e7; --ink-2:#d6c2a9; --muted:#a8927c;
+  --bg:#1c120c; --surface:#231710; --band:#2b1b12; --ink:#f5f0e7; --ink-2:#d6c2a9; --muted:#a8927c;
   --line:#3d2a1e; --line-2:#56402f; --accent:#d6a878; --accent-bg:#3a271a;
-  --ok:#6fd19b; --ok-bg:#15301f; --warn:#f0b75e; --warn-bg:#35270f; --bad:#f28b82; --bad-bg:#3a1a18;
+  --ok:#8fc79a; --ok-bg:#1f2e20; --warn:#f0b75e; --warn-bg:#35270f; --bad:#f28b82; --bad-bg:#3a1a18;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
-.wrap{max-width:920px;margin:0 auto;padding-inline:20px;padding-block:24px 64px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px;padding-block:24px 64px}
 img{max-width:100%}
 a{color:var(--accent)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-h2{font-size:22px;font-weight:700;margin:0;letter-spacing:-.01em}
+h2{font-size:20px;font-weight:700;margin:0}
 .label{font-size:13px;font-weight:600;color:var(--muted)}
 
-/* Header */
-header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:2px solid var(--ink)}
 .brand{display:flex;align-items:center;gap:14px}
 .brand img{width:72px;height:auto}
 .logo-cream{display:none}
@@ -54,30 +53,50 @@ header{display:flex;align-items:center;justify-content:space-between;gap:16px;fl
 .today{font-size:15px;font-weight:600;text-align:right}
 .today span{display:block;font-size:13px;font-weight:500;color:var(--muted)}
 
-/* Summary */
-.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-.stat .num{font-size:36px;font-weight:700;line-height:1.1;margin-top:4px;font-variant-numeric:tabular-nums}
-.stat .num small{font-size:18px;color:var(--muted);font-weight:500}
-.stat .hint{font-size:13px;color:var(--muted);margin-top:4px}
-.stat.hero{background:var(--accent-bg);border-color:transparent}
-.stat.hero .num{color:var(--accent)}
-.bar{height:6px;background:var(--line);border-radius:3px;margin-top:10px;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--ok)}
+/* Summary strip */
+.summary{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-top:0;margin-bottom:8px}
+.stat{padding:14px 18px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;background:var(--accent-bg)}
+.stat .num{font-size:30px;font-weight:700;line-height:1.1;margin-top:2px;font-variant-numeric:tabular-nums}
+.stat:first-child .num{color:var(--accent)}
+.stat .num small{font-size:16px;color:var(--muted);font-weight:500}
+.stat .hint{font-size:13px;color:var(--muted)}
 
-section{margin-top:36px}
-.sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+section{margin-top:32px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
 
-/* Next 7 days */
-.next{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
-.card .when{font-size:13px;font-weight:700}
-.card .when.bad{color:var(--bad)}.card .when.warn{color:var(--warn)}.card .when.soon{color:var(--accent)}
-.card .t{font-size:17px;font-weight:600;line-height:1.35}
-.card .c{font-size:13px;color:var(--muted)}
-.empty{color:var(--muted)}
+/* Timetable */
+.tt-box{border:1px solid var(--line);overflow-x:auto}
+table.tt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tt th{text-align:left;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--line-2);background:var(--surface);position:sticky;top:0}
+.tt td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.tt tr:last-child td{border-bottom:0}
+.tt .c-date{width:118px;white-space:nowrap}
+.tt .c-ws{width:200px;font-size:14px;color:var(--ink-2)}
+.tt .c-st{width:110px;text-align:right}
+.tt .dd{font-weight:700}
+.tt .dw{color:var(--muted);font-size:14px}
+.tt .t{font-weight:600}
+.tt .note{font-size:14px;color:var(--ink-2);margin-top:2px}
+.tt .rel{font-size:13px;color:var(--muted)}
+.tt .ws-m{display:none;font-size:13px;color:var(--muted);margin-top:2px}
+.tt tr.week td{background:var(--band);padding:8px 14px;font-size:13px;font-weight:700;color:var(--ink-2);border-bottom:1px solid var(--line-2)}
+.tt tr.week td span{float:right;font-weight:500;color:var(--muted)}
+.tt tr.week.now td{background:var(--accent-bg);color:var(--accent)}
+.tt tr.done .t{text-decoration:line-through;color:var(--muted)}
+.tt tr.done .note{display:none}
+.tt tr.key .t{color:var(--accent)}
+.tt tr.overdue td:first-child{box-shadow:inset 3px 0 0 var(--bad)}
+.tt tr.soon td:first-child{box-shadow:inset 3px 0 0 var(--warn)}
+.next-box{border-color:var(--line-2)}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px}
+.pill{font-size:12px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap;display:inline-block}
+.pill.done{background:var(--ok-bg);color:var(--ok)}
+.pill.overdue{background:var(--bad-bg);color:var(--bad)}
+.pill.soon{background:var(--warn-bg);color:var(--warn)}
+.pill.upcoming{background:var(--band);color:var(--muted)}
+.empty{color:var(--muted);padding:14px}
 
-/* Filters */
 .chips{display:flex;gap:6px;flex-wrap:wrap}
 .chip{font:500 14px/1 var(--sans);padding:8px 13px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-2);cursor:pointer;border-radius:999px}
 .chip:hover{border-color:var(--accent);color:var(--accent)}
@@ -85,44 +104,24 @@ section{margin-top:36px}
 :root[data-theme="dark"] .chip[aria-pressed="true"]{color:#1c120c}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#1c120c}}
 
-/* List */
-.list{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-.month-h{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;background:var(--bg);border-bottom:1px solid var(--line);font-weight:700}
-.month-h + .item{border-top:0}
-.item + .month-h{border-top:1px solid var(--line)}
-.item{display:grid;grid-template-columns:64px 1fr auto;gap:14px;padding:14px 18px;border-top:1px solid var(--line);align-items:center}
-.date{text-align:center}
-.date .d{font-size:24px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
-.date .w{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
-.title{font-weight:600;font-size:16px;line-height:1.4}
-.meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:3px;font-size:13px;color:var(--muted)}
-.dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:0}
-.note{margin-top:4px;font-size:14px;color:var(--ink-2)}
-.pill{font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap}
-.pill.done{background:var(--ok-bg);color:var(--ok)}
-.pill.overdue{background:var(--bad-bg);color:var(--bad)}
-.pill.soon{background:var(--warn-bg);color:var(--warn)}
-.pill.upcoming{background:var(--bg);color:var(--muted)}
-.item.is-done .title{text-decoration:line-through;color:var(--muted)}
-.item.is-done .note{display:none}
-.item.key .title{color:var(--accent)}
-
-/* Footer */
-.foot{margin-top:36px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;font-size:14px;color:var(--ink-2)}
+.foot{margin-top:32px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;font-size:14px;color:var(--ink-2)}
 .foot p{margin:4px 0 0;max-width:62ch}
 .actions{display:flex;gap:8px;flex-wrap:wrap}
 .btn{font:600 14px/1 var(--sans);padding:11px 16px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;text-decoration:none;display:inline-block}
 .btn.ghost{background:var(--surface);color:var(--accent);border-color:var(--line-2)}
-.err{padding:16px;border:1px solid var(--bad);border-radius:12px;color:var(--bad)}
+.err{padding:16px;border:1px solid var(--bad);color:var(--bad)}
 
-@media (max-width:640px){
+@media (max-width:680px){
   .summary{grid-template-columns:1fr 1fr}
-  .stat.hero{grid-column:1/-1}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
   .today{text-align:left}
   .foot{grid-template-columns:1fr}
-  .item{grid-template-columns:48px 1fr;gap:12px;padding:14px}
-  .item .pill{grid-column:2;justify-self:start}
-  .month-h{padding:12px 14px}
+  .tt .c-ws{display:none}
+  .tt .ws-m{display:block}
+  .tt th,.tt td{padding-inline:10px}
+  .tt .c-date{width:84px;white-space:normal}
+  .tt .c-st{width:auto}
 }
 </style>
 </head>
@@ -134,7 +133,7 @@ section{margin-top:36px}
       <img class="logo-cream" src="assets/fish-cream.png" alt="" width="452" height="162">
       <div>
         <div class="word">NAMII<span class="kanji">鮨</span></div>
-        <div class="sub">Opening roadmap · internal</div>
+        <div class="sub">Opening timetable · internal</div>
       </div>
     </div>
     <div class="today"><span>Today</span><b id="today">—</b></div>
@@ -144,12 +143,12 @@ section{margin-top:36px}
 
   <section>
     <div class="sec-head"><h2>Next 7 days</h2><span class="label" id="next-count"></span></div>
-    <div class="next" id="next"></div>
+    <div class="tt-box next-box" id="next"></div>
   </section>
 
   <section>
-    <div class="sec-head"><h2>All milestones</h2><div class="chips" id="chips" role="group" aria-label="Filter by workstream"></div></div>
-    <div class="list" id="list"></div>
+    <div class="sec-head"><h2>Timetable</h2><div class="chips" id="chips" role="group" aria-label="Filter by workstream"></div></div>
+    <div class="tt-box" id="list"></div>
   </section>
 
   <div class="foot">
@@ -196,7 +195,7 @@ section{margin-top:36px}
   }).sort((a,b) => a.t - b.t);
 
   const rel = d => d === 0 ? 'Today' : d === 1 ? 'Tomorrow' : d > 0 ? `In ${d} days` : `${-d} day${d===-1?'':'s'} overdue`;
-  const pillText = {done:'Done', overdue:'Overdue', soon:'This week', upcoming:'Upcoming'};
+  const pillText = {done:'Done', overdue:'Overdue', soon:'Due soon', upcoming:'Upcoming'};
 
   $('today').textContent = fmt(today, {weekday:'short', day:'numeric', month:'short', year:'numeric'});
 
@@ -204,19 +203,26 @@ section{margin-top:36px}
   const overdue = items.filter(i => i.status === 'overdue');
   const soon = items.filter(i => i.status === 'soon');
   const toOpen = Math.round((opening - today) / DAY);
+  const weeksTo = t => Math.ceil((opening - t) / (7*DAY));
   $('summary').innerHTML = `
-    <div class="stat hero"><div class="label">Days to opening</div><div class="num">${toOpen}</div><div class="hint">Start serving ${fmt(opening,{weekday:'short', day:'numeric', month:'short'})}</div></div>
-    <div class="stat"><div class="label">Completed</div><div class="num">${done}<small> / ${items.length}</small></div><div class="bar"><i style="width:${Math.round(done/items.length*100)}%"></i></div></div>
-    <div class="stat"><div class="label">Due in 7 days</div><div class="num">${soon.length}</div><div class="hint">${overdue.length ? `<b style="color:var(--bad)">${overdue.length} overdue</b>` : 'Nothing overdue'}</div></div>`;
+    <div class="stat"><div class="label">Days to opening</div><div class="num">${toOpen}</div><div class="hint">${fmt(opening,{weekday:'short', day:'numeric', month:'short'})}</div></div>
+    <div class="stat"><div class="label">Completed</div><div class="num">${done}<small> / ${items.length}</small></div><div class="hint">${Math.round(done/items.length*100)}%</div></div>
+    <div class="stat"><div class="label">Due in 7 days</div><div class="num">${soon.length}</div><div class="hint">To ${fmt(today+7*DAY,{day:'numeric', month:'short'})}</div></div>
+    <div class="stat"><div class="label">Overdue</div><div class="num" style="${overdue.length?'color:var(--bad)':''}">${overdue.length}</div><div class="hint">${overdue.length?'Mark done or move date':'All on track'}</div></div>`;
+
+  const head = `<thead><tr><th class="c-date">Date</th><th>Milestone</th><th class="c-ws">Workstream</th><th class="c-st">Status</th></tr></thead>`;
+  const ws = i => `<i class="dot" style="background:${catColor[i.category]}"></i>${esc(cats[i.category])}`;
+  const row = i => `
+    <tr class="${i.status} ${i.category==='launch'?'key':''}">
+      <td class="c-date"><div class="dd">${fmt(i.t,{day:'numeric', month:'short'})}</div><div class="dw">${fmt(i.t,{weekday:'long'})}</div></td>
+      <td><div class="t">${esc(i.title)}</div>${i.note ? `<div class="note">${esc(i.note)}</div>` : ''}<div class="ws-m">${ws(i)}</div></td>
+      <td class="c-ws">${ws(i)}</td>
+      <td class="c-st"><span class="pill ${i.status}">${pillText[i.status]}</span>${!i.done ? `<div class="rel">${rel(i.days)}</div>` : ''}</td>
+    </tr>`;
 
   const nextItems = [...overdue, ...soon];
   $('next-count').textContent = nextItems.length ? `${nextItems.length} item${nextItems.length>1?'s':''}` : '';
-  $('next').innerHTML = nextItems.length ? nextItems.map(i => `
-    <div class="card">
-      <div class="when ${i.days<0?'bad':i.days<=1?'warn':'soon'}">${rel(i.days)} · ${fmt(i.t,{weekday:'short', day:'numeric', month:'short'})}</div>
-      <div class="t">${esc(i.title)}</div>
-      <div class="c"><i class="dot" style="background:${catColor[i.category]}"></i>${esc(cats[i.category])}</div>
-    </div>`).join('') : '<p class="empty">Nothing due this week.</p>';
+  $('next').innerHTML = nextItems.length ? `<table class="tt">${head}<tbody>${nextItems.map(row).join('')}</tbody></table>` : '<p class="empty">Nothing due this week.</p>';
 
   let filter = 'all';
   try { filter = localStorage.getItem('namii-filter') || 'all'; } catch(e) {}
@@ -225,22 +231,22 @@ section{margin-top:36px}
   function renderChips(){
     $('chips').innerHTML = chips.map(([k,l]) => `<button type="button" class="chip" data-k="${k}" aria-pressed="${k===filter}">${esc(l)}</button>`).join('');
   }
+  const weekStart = t => t - ((new Date(t).getUTCDay() + 6) % 7) * DAY; // Monday
   function renderList(){
     const shown = items.filter(i => filter === 'all' || i.category === filter);
-    const byMonth = {};
-    shown.forEach(i => { const k = fmt(i.t,{month:'long', year:'numeric'}); (byMonth[k] ||= []).push(i); });
-    $('list').innerHTML = Object.entries(byMonth).map(([mon, list]) => `
-      <div class="month-h"><span>${mon}</span><span class="label">${list.filter(i=>i.done).length} / ${list.length} done</span></div>
-      ${list.map(i => `
-      <div class="item ${i.done?'is-done':''} ${i.category==='launch'?'key':''}">
-        <div class="date"><div class="d">${fmt(i.t,{day:'numeric'})}</div><div class="w">${fmt(i.t,{weekday:'short'})}</div></div>
-        <div>
-          <div class="title">${esc(i.title)}</div>
-          <div class="meta"><span><i class="dot" style="background:${catColor[i.category]}"></i>${esc(cats[i.category])}</span>${!i.done ? `<span>· ${rel(i.days)}</span>` : ''}</div>
-          ${i.note ? `<div class="note">${esc(i.note)}</div>` : ''}
-        </div>
-        <span class="pill ${i.status}">${pillText[i.status]}</span>
-      </div>`).join('')}`).join('') || '<p class="empty" style="padding:16px">No milestones in this workstream.</p>';
+    if (!shown.length) { $('list').innerHTML = '<p class="empty">No milestones in this workstream.</p>'; return; }
+    const thisWeek = weekStart(today);
+    let html = '', cur = null;
+    shown.forEach(i => {
+      const w = weekStart(i.t);
+      if (w !== cur) {
+        cur = w;
+        const wk = weeksTo(w);
+        html += `<tr class="week ${w===thisWeek?'now':''}"><td colspan="4">${w===thisWeek?'This week · ':''}${fmt(w,{day:'numeric', month:'short'})} – ${fmt(w+6*DAY,{day:'numeric', month:'short'})}<span>${wk>0 ? `${wk} week${wk>1?'s':''} to opening` : 'Opening week'}</span></td></tr>`;
+      }
+      html += row(i);
+    });
+    $('list').innerHTML = `<table class="tt">${head}<tbody>${html}</tbody></table>`;
   }
   $('chips').addEventListener('click', e => {
     const b = e.target.closest('.chip'); if (!b) return;
