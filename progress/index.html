@@ -13,7 +13,7 @@
 <style>
 :root{
   --bg:#ffffff; --surface:#ffffff; --band:#faf6f0; --ink:#2b1b12; --ink-2:#5c4636; --muted:#8c7562;
-  --line:#ece3d6; --line-2:#dccdb8; --accent:#2b1b12; --accent-bg:#2b1b12;
+  --line:#eadccb; --line-2:#d4b996; --accent:#9a6b43; --accent-bg:#9a6b43;
   --ok:#3f7a4a; --ok-bg:#e6f2e7; --warn:#9a5b00; --warn-bg:#fdf1dc; --bad:#b3362b; --bad-bg:#fbe6e3;
   --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
@@ -29,7 +29,7 @@ a{color:var(--accent)}
 h2{font-size:20px;font-weight:700;margin:0}
 .label{font-size:13px;font-weight:600;color:var(--muted)}
 
-header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:2px solid var(--ink)}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:2px solid var(--accent)}
 .brand{display:flex;align-items:center;gap:14px}
 .brand img{width:72px;height:auto}
 .logo-cream{display:none}
@@ -40,10 +40,10 @@ header{display:flex;align-items:center;justify-content:space-between;gap:16px;fl
 .today span{display:block;font-size:13px;font-weight:500;color:var(--muted)}
 
 /* Summary strip */
-.summary{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-top:0;margin-bottom:8px}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line-2);border-top:0;margin-bottom:8px}
 .stat{padding:14px 18px;border-left:1px solid var(--line)}
-.stat:first-child{border-left:0;background:var(--ink);color:#fff}
-.stat:first-child .label,.stat:first-child .hint{color:#d6c2a9}
+.stat:first-child{border-left:0;background:var(--accent);color:#fff}
+.stat:first-child .label,.stat:first-child .hint{color:#f6ece0}
 .stat .num{font-size:30px;font-weight:700;line-height:1.1;margin-top:2px;font-variant-numeric:tabular-nums}
 .stat:first-child .num{color:#fff}
 .stat .num small{font-size:16px;color:var(--muted);font-weight:500}
@@ -53,7 +53,7 @@ section{margin-top:32px}
 .sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
 
 /* Timetable */
-.tt-box{border:1px solid var(--line);overflow-x:auto}
+.tt-box{border:1px solid var(--line-2);overflow-x:auto}
 table.tt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .tt th{text-align:left;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--line-2);background:var(--surface);position:sticky;top:0}
 .tt td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -68,13 +68,13 @@ table.tt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .tt .note{font-size:14px;color:var(--ink-2);margin-top:2px}
 .tt .rel{font-size:13px;color:var(--muted)}
 .tt .ws-m{display:none;font-size:13px;color:var(--muted);margin-top:2px}
-.tt tr.week td{background:var(--ink);padding:8px 14px;font-size:13px;font-weight:700;color:#fff;border-bottom:0}
-.tt tr.week td span{float:right;font-weight:500;color:#d6c2a9}
+.tt tr.week td{background:var(--accent);padding:8px 14px;font-size:13px;font-weight:700;color:#fff;border-bottom:0}
+.tt tr.week td span{float:right;font-weight:500;color:#f6ece0}
 .tt tr.done .t{text-decoration:line-through;color:var(--muted)}
 .tt tr.done .note{display:none}
 .tt tr.key .t{color:var(--accent)}
 .tt tr.overdue td:first-child{box-shadow:inset 3px 0 0 var(--bad)}
-.tt tr.soon td:first-child{box-shadow:inset 3px 0 0 var(--warn)}
+.tt tr.soon td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
 .next-box{border-color:var(--line-2)}
 .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px}
 .pill{font-size:12px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap;display:inline-block}
