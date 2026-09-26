@@ -13,7 +13,7 @@
 <style>
 :root{
   --bg:#ffffff; --surface:#ffffff; --band:#faf6f0; --ink:#2b1b12; --ink-2:#5c4636; --muted:#8c7562;
-  --line:rgba(43,27,18,.10); --line-2:rgba(43,27,18,.22); --accent:#2b1b12; --accent-bg:rgba(43,27,18,.08);
+  --line:#eadfd1; --line-2:#cdb89f; --accent:#2b1b12; --accent-bg:#ead9c3;
   --ok:#3f7a4a; --ok-bg:#e6f2e7; --warn:#9a5b00; --warn-bg:#fdf1dc; --bad:#b3362b; --bad-bg:#fbe6e3;
   --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
@@ -42,9 +42,10 @@ header{display:flex;align-items:center;justify-content:space-between;gap:16px;fl
 /* Summary strip */
 .summary{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line-2);border-top:0;margin-bottom:8px}
 .stat{padding:14px 18px;border-left:1px solid var(--line)}
-.stat:first-child{border-left:0;background:var(--accent-bg)}
+.stat:first-child{border-left:0;background:var(--ink);color:#fff}
+.stat:first-child .label,.stat:first-child .hint{color:#e6d5bf}
 .stat .num{font-size:30px;font-weight:700;line-height:1.1;margin-top:2px;font-variant-numeric:tabular-nums}
-.stat:first-child .num{color:var(--ink)}
+.stat:first-child .num{color:#fff}
 .stat .num small{font-size:16px;color:var(--muted);font-weight:500}
 .stat .hint{font-size:13px;color:var(--muted)}
 
