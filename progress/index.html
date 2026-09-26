@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#2B1B12">
+<title>NAMII Progress</title>
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600&family=Montserrat:wght@400;500;600&family=Noto+Serif+JP:wght@500&display=swap">
+<style>
+:root{
+  --bg:#f5f0e7; --surface:#fbf8f2; --ink:#2b1b12; --ink-2:#6b5747; --muted:#8c7562;
+  --line:#e5d8c4; --line-2:#d6c2a9; --accent:#a6774d;
+  --ok:#4f6b3f; --ok-bg:#e6ead9; --warn:#9a6a14; --warn-bg:#f3e6c6; --bad:#a3342a; --bad-bg:#f4dcd6;
+  --done-bg:#e8ddcf;
+  --serif:Cormorant,Georgia,"Times New Roman",serif; --sans:Montserrat,"Helvetica Neue",Arial,sans-serif;
+  --jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1c120c; --surface:#2b1b12; --ink:#f5f0e7; --ink-2:#d6c2a9; --muted:#a8927c;
+  --line:#3d2a1e; --line-2:#56402f; --accent:#d6a878;
+  --ok:#a9c28f; --ok-bg:#2c3322; --warn:#e3b760; --warn-bg:#3a2c12; --bad:#f09384; --bad-bg:#43201b;
+  --done-bg:#33241a; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#1c120c; --surface:#2b1b12; --ink:#f5f0e7; --ink-2:#d6c2a9; --muted:#a8927c;
+  --line:#3d2a1e; --line-2:#56402f; --accent:#d6a878;
+  --ok:#a9c28f; --ok-bg:#2c3322; --warn:#e3b760; --warn-bg:#3a2c12; --bad:#f09384; --bad-bg:#43201b;
+  --done-bg:#33241a; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+img{max-width:100%}
+.label{font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+h2{font:500 30px/1.15 var(--serif);margin:0;text-wrap:balance}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Header */
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:18px}
+.brand img{width:112px;height:auto}
+.logo-cream{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .logo-dark{display:none}:root:not([data-theme="light"]) .logo-cream{display:block}}
+:root[data-theme="dark"] .logo-dark{display:none}:root[data-theme="dark"] .logo-cream{display:block}
+.word{font:500 30px/1 var(--serif);letter-spacing:.42em;margin-right:-.42em}
+.word .kanji{font-family:var(--jp);font-size:20px;letter-spacing:0;margin-left:.3em;vertical-align:3px}
+.sub{margin-top:8px}
+.head-meta{text-align:right}
+.head-meta .today{font:500 20px/1.2 var(--serif)}
+
+/* Summary */
+.summary{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.stat{background:var(--surface);padding:18px 20px}
+.stat .num{font:500 44px/1 var(--serif);font-variant-numeric:tabular-nums;margin-top:8px}
+.stat .num small{font-size:20px;color:var(--muted)}
+.stat.hero{background:var(--ink);color:var(--bg)}
+.stat.hero .label{color:var(--line-2)}
+:root[data-theme="dark"] .stat.hero{background:var(--accent);color:#1c120c}
+:root[data-theme="dark"] .stat.hero .label{color:#3d2a1e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stat.hero{background:var(--accent);color:#1c120c}:root:not([data-theme="light"]) .stat.hero .label{color:#3d2a1e}}
+.bar{height:4px;background:var(--line);margin-top:14px}
+.bar i{display:block;height:100%;background:var(--accent)}
+.stat .hint{font-size:12px;color:var(--muted);margin-top:6px}
+.stat.hero .hint{color:inherit;opacity:.75}
+
+section{margin-top:48px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+
+/* Timeline */
+.tl-box{overflow-x:auto;border:1px solid var(--line);background:var(--surface)}
+.tl-box svg{display:block;min-width:760px;width:100%;height:auto}
+.tl-legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--muted)}
+.tl-legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+
+/* Filters */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font:500 12px/1 var(--sans);letter-spacing:.06em;padding:9px 14px;border:1px solid var(--line-2);background:transparent;color:var(--ink-2);cursor:pointer;border-radius:999px}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+
+/* List */
+.month{margin-top:28px}
+.month h3{font:500 22px/1 var(--serif);margin:0 0 4px;display:flex;align-items:baseline;gap:12px}
+.month h3 .label{letter-spacing:.14em}
+.item{display:grid;grid-template-columns:78px 1fr auto;gap:18px;padding:16px 0;border-top:1px solid var(--line);align-items:start}
+.date .d{font:500 30px/1 var(--serif);font-variant-numeric:tabular-nums}
+.date .w{font:500 11px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.title{font-weight:600;font-size:15px;line-height:1.45}
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:5px;font-size:12px;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;gap:6px}
+.added{border:1px dashed var(--line-2);padding:1px 7px;border-radius:3px;font-size:11px;letter-spacing:.04em}
+.note{margin-top:8px;font-size:13.5px;line-height:1.6;color:var(--ink-2);max-width:64ch;padding-left:12px;border-left:2px solid var(--line-2)}
+.note.risk{border-left-color:var(--bad)}
+.note.watch{border-left-color:var(--warn)}
+.note .sug{display:inline-block;margin-top:4px;font-weight:600;color:var(--ink)}
+.pill{font:600 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding:6px 9px;border-radius:3px;white-space:nowrap}
+.pill.done{background:var(--done-bg);color:var(--muted)}
+.pill.overdue{background:var(--bad-bg);color:var(--bad)}
+.pill.soon{background:var(--warn-bg);color:var(--warn)}
+.pill.upcoming{background:transparent;color:var(--muted);border:1px solid var(--line-2)}
+.item.is-done .title{text-decoration:line-through;text-decoration-color:var(--line-2);color:var(--muted)}
+.item.is-done .note{display:none}
+
+/* Next 7 days */
+.next{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.card .when{font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.card .when.bad{color:var(--bad)}.card .when.warn{color:var(--warn)}
+.card .t{font:500 21px/1.2 var(--serif)}
+.card .c{font-size:12px;color:var(--muted)}
+.empty{color:var(--muted);font-style:italic}
+
+/* Review */
+.review{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.rv{border-top:2px solid var(--bad);background:var(--surface);padding:16px 18px}
+.rv h4{margin:0;font:500 20px/1.25 var(--serif)}
+.rv .dates{font-size:12px;color:var(--muted);margin-top:4px;font-variant-numeric:tabular-nums}
+.rv .dates b{color:var(--ink)}
+.rv p{margin:8px 0 0;font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+
+/* Footer */
+.foot{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
+.foot p{margin:6px 0 0;font-size:13.5px;color:var(--ink-2);max-width:62ch}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:13px 18px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer;text-decoration:none;display:inline-block}
+.btn.ghost{background:transparent;color:var(--ink)}
+.err{padding:20px;border:1px solid var(--bad);color:var(--bad);margin-top:24px}
+
+@media (max-width:760px){
+  .summary{grid-template-columns:1fr 1fr}
+  .stat.hero{grid-column:1/-1}
+  .head-meta{text-align:left}
+  .foot{grid-template-columns:1fr}
+}
+@media (max-width:460px){
+  .brand img{width:84px}
+  .word{font-size:24px}
+  .item{grid-template-columns:56px 1fr;gap:12px}
+  .item .pill{grid-column:2;justify-self:start}
+  .date .d{font-size:26px}
+  .stat .num{font-size:36px}
+}
+@media (prefers-reduced-motion:no-preference){.bar i{transition:width .6s ease}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <img class="logo-dark" src="assets/fish-dark.png" alt="NAMII fish logo" width="452" height="162">
+      <img class="logo-cream" src="assets/fish-cream.png" alt="" width="452" height="162">
+      <div>
+        <div class="word">NAMII<span class="kanji">鮨</span></div>
+        <div class="label sub">Omakase opening roadmap</div>
+      </div>
+    </div>
+    <div class="head-meta">
+      <div class="label">Today · Kuala Lumpur</div>
+      <div class="today" id="today">—</div>
+    </div>
+  </header>
+
+  <div class="summary" id="summary"></div>
+
+  <section>
+    <div class="sec-head"><h2>Next 7 days</h2><span class="label" id="next-count"></span></div>
+    <div class="next" id="next"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Timeline</h2><span class="label">Today → opening</span></div>
+    <div class="tl-box"><svg id="tl" role="img" aria-label="Milestones by workstream on a timeline"></svg></div>
+    <div class="tl-legend">
+      <span><i class="dot" style="background:var(--ink)"></i>Upcoming</span>
+      <span><i class="dot" style="background:var(--bad)"></i>Schedule risk</span>
+      <span><i class="dot" style="border:1.5px solid var(--muted)"></i>Done</span>
+      <span><i class="dot" style="border:1.5px dashed var(--muted)"></i>Suggested earlier date</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Schedule review</h2><span class="label" id="risk-count"></span></div>
+    <p style="margin:-6px 0 16px;color:var(--ink-2);max-width:68ch;font-size:14px">Most of the plan works. These dates put the 1&nbsp;December opening at risk. Each shows your date and a safer one.</p>
+    <div class="review" id="review"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>All milestones</h2><div class="chips" id="chips" role="group" aria-label="Filter by workstream"></div></div>
+    <div id="list"></div>
+  </section>
+
+  <div class="foot">
+    <div>
+      <div class="label">Email reminders</div>
+      <p>A reminder email goes out at 8am (Malaysia time) 7 days, 3 days and 1 day before each milestone, and on the day. Overdue items come back every Monday until they're marked done.</p>
+      <p>To tick something off or change a date, edit <code>progress/milestones.json</code>. The page and the emails both update from that file.</p>
+    </div>
+    <div class="actions">
+      <button class="btn" id="ics" type="button">Add to calendar</button>
+      <a class="btn ghost" href="https://github.com/abigailmini/namii/edit/main/progress/milestones.json" target="_blank" rel="noopener">Edit roadmap</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(async function(){
+  const $ = s => document.getElementById(s);
+  let data;
+  try {
+    const r = await fetch('milestones.json', {cache:'no-store'});
+    if (!r.ok) throw new Error(r.status);
+    data = await r.json();
+  } catch (e) {
+    $('list').innerHTML = '<div class="err">Couldn\'t load milestones.json. Open this page from the website, not as a local file.</div>';
+    return;
+  }
+
+  const DAY = 864e5;
+  const off = (data.timezone_offset_hours ?? 8) * 36e5;
+  const nowLocal = new Date(Date.now() + off);
+  const today = Date.UTC(nowLocal.getUTCFullYear(), nowLocal.getUTCMonth(), nowLocal.getUTCDate());
+  const parse = s => { const [y,m,d] = s.split('-').map(Number); return Date.UTC(y, m-1, d); };
+  const fmt = (t, o) => new Date(t).toLocaleDateString('en-GB', {timeZone:'UTC', ...o});
+  const cats = data.categories;
+  const catColor = {design:'#a6774d', purchase:'#7b8a5a', marketing:'#b25f4a', hiring:'#5d6f86', setup:'#8a7a55', launch:'var(--ink)'};
+  const opening = parse(data.opening);
+
+  const items = data.milestones.map(m => {
+    const due = parse(m.due);
+    const days = Math.round((due - today) / DAY);
+    const status = m.done ? 'done' : days < 0 ? 'overdue' : days <= 7 ? 'soon' : 'upcoming';
+    return {...m, t: due, days, status, sug: m.suggested ? parse(m.suggested) : null};
+  }).sort((a,b) => a.t - b.t || a.category.localeCompare(b.category));
+
+  const rel = d => d === 0 ? 'Today' : d === 1 ? 'Tomorrow' : d > 0 ? `In ${d} days` : `${-d} day${d===-1?'':'s'} overdue`;
+  const pillText = {done:'Done', overdue:'Overdue', soon:'Due soon', upcoming:'Upcoming'};
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  $('today').textContent = fmt(today, {weekday:'short', day:'numeric', month:'long', year:'numeric'});
+
+  // Summary
+  const done = items.filter(i => i.done).length;
+  const soon = items.filter(i => !i.done && i.days >= 0 && i.days <= 7);
+  const overdue = items.filter(i => i.status === 'overdue');
+  const risks = items.filter(i => !i.done && i.flag === 'risk');
+  const toOpen = Math.round((opening - today) / DAY);
+  const pct = Math.round(done / items.length * 100);
+  $('summary').innerHTML = `
+    <div class="stat hero"><div class="label">Days to opening</div><div class="num">${toOpen}</div><div class="hint">${fmt(opening,{weekday:'long', day:'numeric', month:'long'})} · KOL tastings begin</div></div>
+    <div class="stat"><div class="label">Completed</div><div class="num">${done}<small> / ${items.length}</small></div><div class="bar"><i style="width:${pct}%"></i></div></div>
+    <div class="stat"><div class="label">Due in 7 days</div><div class="num">${soon.length}</div><div class="hint">${overdue.length ? `<span style="color:var(--bad)">${overdue.length} overdue</span>` : 'Nothing overdue'}</div></div>
+    <div class="stat"><div class="label">Schedule risks</div><div class="num">${risks.length}</div><div class="hint">See schedule review</div></div>`;
+
+  // Next 7 days (+ overdue first)
+  const nextItems = [...overdue, ...soon];
+  $('next-count').textContent = nextItems.length ? `${nextItems.length} item${nextItems.length>1?'s':''}` : '';
+  $('next').innerHTML = nextItems.length ? nextItems.map(i => `
+    <div class="card">
+      <div class="when ${i.days<0?'bad':i.days<=1?'warn':''}">${rel(i.days)} · ${fmt(i.t,{weekday:'short', day:'numeric', month:'short'})}</div>
+      <div class="t">${esc(i.title)}</div>
+      <div class="c">${esc(cats[i.category])}</div>
+    </div>`).join('') : '<p class="empty">Nothing due this week.</p>';
+
+  // Review
+  $('risk-count').textContent = `${risks.length} flagged`;
+  $('review').innerHTML = risks.map(i => `
+    <div class="rv">
+      <h4>${esc(i.title)}</h4>
+      <div class="dates">Your date <b>${fmt(i.t,{day:'numeric', month:'short'})}</b>${i.sug ? ` → suggested <b>${fmt(i.sug,{day:'numeric', month:'short'})}</b>` : ''}</div>
+      <p>${esc(i.note)}</p>
+    </div>`).join('');
+
+  // Timeline SVG
+  (function(){
+    const lanes = Object.keys(cats);
+    const start = Math.min(today, items[0].t) - 2*DAY, end = opening + 7*DAY;
+    const W = 1000, L = 150, R = 24, top = 40, laneH = 46, H = top + lanes.length*laneH + 16;
+    const x = t => L + (t - start) / (end - start) * (W - L - R);
+    const css = getComputedStyle(document.documentElement);
+    const v = n => css.getPropertyValue(n).trim();
+    let s = '';
+    // month ticks
+    const d0 = new Date(start); let m = Date.UTC(d0.getUTCFullYear(), d0.getUTCMonth()+1, 1);
+    for (; m <= end; m = Date.UTC(new Date(m).getUTCFullYear(), new Date(m).getUTCMonth()+1, 1)) {
+      s += `<line x1="${x(m)}" x2="${x(m)}" y1="${top-10}" y2="${H-8}" stroke="${v('--line-2')}" />`;
+      s += `<text x="${x(m)+6}" y="${top-16}" font-size="12" letter-spacing="2" fill="${v('--muted')}" font-family="Montserrat,Arial,sans-serif">${fmt(m,{month:'short'}).toUpperCase()}</text>`;
+    }
+    lanes.forEach((c, k) => {
+      const y = top + k*laneH + laneH/2;
+      if (k) s += `<line x1="0" x2="${W}" y1="${y-laneH/2}" y2="${y-laneH/2}" stroke="${v('--line')}" />`;
+      s += `<text x="16" y="${y+4}" font-size="12.5" fill="${v('--ink-2')}" font-family="Montserrat,Arial,sans-serif">${esc(cats[c])}</text>`;
+      items.filter(i => i.category === c).forEach(i => {
+        const cx = x(i.t);
+        const fill = i.done ? 'none' : i.flag === 'risk' ? v('--bad') : v('--ink');
+        const stroke = i.done ? v('--muted') : 'none';
+        if (i.sug && !i.done) {
+          s += `<line x1="${x(i.sug)}" x2="${cx}" y1="${y}" y2="${y}" stroke="${v('--bad')}" stroke-width="1.5" stroke-dasharray="3 3" />`;
+          s += `<circle cx="${x(i.sug)}" cy="${y}" r="5.5" fill="${v('--surface')}" stroke="${v('--bad')}" stroke-width="1.5" stroke-dasharray="2 2"><title>Suggested: ${fmt(i.sug,{day:'numeric',month:'short'})} — ${esc(i.title)}</title></circle>`;
+        }
+        s += `<circle cx="${cx}" cy="${y}" r="${c==='launch'?8:6}" fill="${fill}" stroke="${stroke}" stroke-width="1.5"><title>${fmt(i.t,{day:'numeric',month:'short'})} — ${esc(i.title)}</title></circle>`;
+      });
+    });
+    // today + opening markers
+    const tx = x(today), ox = x(opening);
+    s += `<line x1="${tx}" x2="${tx}" y1="${top-6}" y2="${H-8}" stroke="${v('--accent')}" stroke-width="2" />`;
+    s += `<text x="${tx}" y="${H-0}" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="1.5" fill="${v('--accent')}" font-family="Montserrat,Arial,sans-serif">TODAY</text>`;
+    s += `<line x1="${ox}" x2="${ox}" y1="${top-6}" y2="${H-8}" stroke="${v('--ink')}" stroke-width="1" stroke-dasharray="4 3" />`;
+    s += `<text x="${ox}" y="${H-0}" text-anchor="middle" font-size="11" font-weight="600" letter-spacing="1.5" fill="${v('--ink')}" font-family="Montserrat,Arial,sans-serif">OPENING</text>`;
+    const svg = $('tl');
+    svg.setAttribute('viewBox', `0 0 ${W} ${H+6}`);
+    svg.innerHTML = s;
+  })();
+
+  // Filter chips + list
+  let filter = 'all';
+  try { filter = localStorage.getItem('namii-filter') || 'all'; } catch(e) {}
+  if (filter !== 'all' && !cats[filter]) filter = 'all';
+  const chips = [['all','All'], ...Object.entries(cats)];
+  function renderChips(){
+    $('chips').innerHTML = chips.map(([k,l]) => `<button type="button" class="chip" data-k="${k}" aria-pressed="${k===filter}">${esc(l)}</button>`).join('');
+  }
+  function renderList(){
+    const shown = items.filter(i => filter === 'all' || i.category === filter);
+    const byMonth = {};
+    shown.forEach(i => { const k = fmt(i.t,{month:'long', year:'numeric'}); (byMonth[k] ||= []).push(i); });
+    $('list').innerHTML = Object.entries(byMonth).map(([mon, list]) => `
+      <div class="month">
+        <h3>${mon.split(' ')[0]} <span class="label">${list.filter(i=>i.done).length}/${list.length} done</span></h3>
+        ${list.map(i => `
+        <div class="item ${i.done?'is-done':''}">
+          <div class="date"><div class="d">${fmt(i.t,{day:'2-digit'})}</div><div class="w">${fmt(i.t,{weekday:'short'})}</div></div>
+          <div>
+            <div class="title">${esc(i.title)}</div>
+            <div class="meta"><span class="tag"><i class="dot" style="background:${catColor[i.category]||'var(--muted)'}"></i>${esc(cats[i.category])}</span>
+              ${!i.done ? `<span>· ${rel(i.days)}</span>` : ''}
+              ${i.added ? '<span class="added">Added in review</span>' : ''}</div>
+            ${i.note && i.flag !== 'ok' ? `<div class="note ${i.flag}">${esc(i.note)}${i.sug ? `<br><span class="sug">Suggested: ${fmt(i.sug,{weekday:'short', day:'numeric', month:'short'})}</span>` : ''}</div>` : ''}
+          </div>
+          <span class="pill ${i.status}">${pillText[i.status]}</span>
+        </div>`).join('')}
+      </div>`).join('') || '<p class="empty">No milestones in this workstream.</p>';
+  }
+  $('chips').addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    filter = b.dataset.k;
+    try { localStorage.setItem('namii-filter', filter); } catch(e) {}
+    renderChips(); renderList();
+  });
+  renderChips(); renderList();
+
+  // Calendar export (.ics) with alarms 7 days and 1 day before
+  $('ics').addEventListener('click', () => {
+    const ymd = t => new Date(t).toISOString().slice(0,10).replace(/-/g,'');
+    const escI = s => String(s).replace(/[\\;,]/g, c => '\\' + c).replace(/\n/g, '\\n');
+    const stamp = new Date().toISOString().replace(/[-:]/g,'').slice(0,15) + 'Z';
+    const ev = items.filter(i => !i.done).map(i => [
+      'BEGIN:VEVENT', `UID:${i.id}@namiiprogress`, `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${ymd(i.t)}`, `DTEND;VALUE=DATE:${ymd(i.t + DAY)}`,
+      `SUMMARY:${escI('NAMII · ' + i.title)}`, `DESCRIPTION:${escI(cats[i.category] + (i.note ? '\n\n' + i.note : ''))}`,
+      'BEGIN:VALARM','ACTION:DISPLAY','TRIGGER:-P7D',`DESCRIPTION:${escI(i.title)} in 7 days`,'END:VALARM',
+      'BEGIN:VALARM','ACTION:DISPLAY','TRIGGER:-P1D',`DESCRIPTION:${escI(i.title)} tomorrow`,'END:VALARM',
+      'END:VEVENT'].join('\r\n'));
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//NAMII//Progress//EN','CALSCALE:GREGORIAN','X-WR-CALNAME:NAMII Opening', ...ev, 'END:VCALENDAR'].join('\r\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar'}));
+    a.download = 'namii-roadmap.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+})();
+</script>
+</body>
+</html>

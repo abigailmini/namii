@@ -1,0 +1,35 @@
+name: Roadmap reminders
+
+on:
+  schedule:
+    # 00:17 UTC = 08:17 Malaysia time, every day
+    - cron: "17 0 * * *"
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Send a test email now (next 14 days)"
+        type: boolean
+        default: true
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Send reminder email
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://namiiprogress.pages.dev' }}
+        run: |
+          if [ "${{ github.event_name == 'workflow_dispatch' && inputs.test }}" = "true" ]; then
+            python tools/send_reminders.py --test
+          else
+            python tools/send_reminders.py
+          fi
