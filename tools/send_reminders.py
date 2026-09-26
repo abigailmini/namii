@@ -91,8 +91,8 @@ def render(data, today, upcoming, overdue, site_url):
         lines.append("COMING UP")
         for m in upcoming:
             lines.append(f"  • {fmt(m['_due'])} ({when(m['_days'])}) — {m['title']} [{m['_cat']}]")
-            if m.get("note") and m.get("flag") == "risk":
-                lines.append(f"      ⚠ {m['note']}")
+            if m.get("note"):
+                lines.append(f"      {m['note']}")
         lines.append("")
     if overdue:
         lines.append("OVERDUE — mark done in milestones.json or move the date")
@@ -108,41 +108,41 @@ def render(data, today, upcoming, overdue, site_url):
         out = []
         for m in items:
             note = ""
-            if m.get("note") and m.get("flag") == "risk":
-                note = (f'<div style="margin-top:6px;font-size:13px;color:#8a4b2a;line-height:1.5">'
-                        f'⚠ {escape(m["note"])}</div>')
+            if m.get("note"):
+                note = (f'<div style="margin-top:6px;font-size:13px;color:#4a5263;line-height:1.5">'
+                        f'{escape(m["note"])}</div>')
             out.append(
-                f'<tr><td style="padding:14px 0;border-top:1px solid #e5d8c4;vertical-align:top;width:92px">'
-                f'<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8c7562">{m["_due"].strftime("%a")}</div>'
-                f'<div style="font-family:Georgia,serif;font-size:22px;color:#2b1b12">{m["_due"].strftime("%d %b")}</div></td>'
-                f'<td style="padding:14px 0;border-top:1px solid #e5d8c4;vertical-align:top">'
-                f'<div style="font-size:15px;color:#2b1b12;font-weight:600">{escape(m["title"])}</div>'
-                f'<div style="font-size:12px;color:#8c7562;margin-top:3px">{escape(m["_cat"])} · '
+                f'<tr><td style="padding:14px 0;border-top:1px solid #e4e7ec;vertical-align:top;width:92px">'
+                f'<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6b7385">{m["_due"].strftime("%a")}</div>'
+                f'<div style="font-size:22px;color:#1d2433">{m["_due"].strftime("%d %b")}</div></td>'
+                f'<td style="padding:14px 0;border-top:1px solid #e4e7ec;vertical-align:top">'
+                f'<div style="font-size:15px;color:#1d2433;font-weight:600">{escape(m["title"])}</div>'
+                f'<div style="font-size:12px;color:#6b7385;margin-top:3px">{escape(m["_cat"])} · '
                 f'<b style="color:{accent}">{when(m["_days"])}</b></div>{note}</td></tr>'
             )
         return "".join(out)
 
     section = lambda title, body: (
-        f'<div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8c7562;margin:28px 0 4px">{title}</div>'
+        f'<div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6b7385;margin:28px 0 4px">{title}</div>'
         f'<table style="width:100%;border-collapse:collapse">{body}</table>'
     )
     parts = []
     if upcoming:
-        parts.append(section("Coming up", rows(upcoming, "#a6774d")))
+        parts.append(section("Coming up", rows(upcoming, "#2f6fde")))
     if overdue:
         parts.append(section("Overdue", rows(overdue, "#b3261e")))
-    link = (f'<p style="margin-top:28px"><a href="{escape(site_url)}" style="display:inline-block;background:#2b1b12;'
-            f'color:#f5f0e7;padding:12px 22px;text-decoration:none;font-size:13px;letter-spacing:.12em;'
+    link = (f'<p style="margin-top:28px"><a href="{escape(site_url)}" style="display:inline-block;background:#1d2433;'
+            f'color:#f6f7f9;padding:12px 22px;text-decoration:none;font-size:13px;letter-spacing:.12em;'
             f'text-transform:uppercase">Open roadmap</a></p>') if site_url else ""
-    html = f"""<!doctype html><html><body style="margin:0;background:#f5f0e7;font-family:Helvetica,Arial,sans-serif">
+    html = f"""<!doctype html><html><body style="margin:0;background:#f6f7f9;font-family:Helvetica,Arial,sans-serif">
 <div style="max-width:560px;margin:0 auto;padding:32px 24px">
-<div style="font-family:Georgia,serif;font-size:28px;letter-spacing:.35em;color:#2b1b12">NAMII <span style="letter-spacing:0">鮨</span></div>
-<div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8c7562;margin-top:6px">Opening roadmap · {fmt(today)}</div>
-<div style="margin-top:22px;padding:16px 18px;background:#2b1b12;color:#f5f0e7">
-<span style="font-family:Georgia,serif;font-size:30px">{to_open}</span>
+<div style="font-size:28px;letter-spacing:.35em;color:#1d2433">NAMII <span style="letter-spacing:0">鮨</span></div>
+<div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6b7385;margin-top:6px">Opening roadmap · {fmt(today)}</div>
+<div style="margin-top:22px;padding:16px 18px;background:#1d2433;color:#f6f7f9">
+<span style="font-size:30px">{to_open}</span>
 <span style="font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.8">&nbsp;days to opening &nbsp;·&nbsp; {done}/{total} done</span></div>
 {''.join(parts)}{link}
-<p style="font-size:11px;color:#8c7562;margin-top:32px;line-height:1.6">You get this email 7, 3 and 1 day before each milestone and on the day.
+<p style="font-size:11px;color:#6b7385;margin-top:32px;line-height:1.6">You get this email 7, 3 and 1 day before each milestone and on the day.
 Mark items done in <code>progress/milestones.json</code> to stop reminders.</p>
 </div></body></html>"""
     return subject, text, html

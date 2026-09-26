@@ -1,19 +1,24 @@
 {
   "project": "NAMII 鮨 — Omakase Opening",
   "location": "Pavilion Damansara Heights, LG floor",
-  "opening": "2026-12-01",
+  "opening": "2026-12-07",
   "timezone_offset_hours": 8,
   "reminders": {
-    "days_before": [7, 3, 1, 0],
+    "days_before": [
+      7,
+      3,
+      1,
+      0
+    ],
     "overdue_on_mondays": true
   },
   "categories": {
-    "design":    "Design & Renovation",
-    "purchase":  "Purchasing",
+    "design": "Design & Renovation",
+    "purchase": "Purchasing",
     "marketing": "Marketing & Social",
-    "hiring":    "Hiring & Suppliers",
-    "setup":     "Licences & Setup",
-    "launch":    "Launch"
+    "hiring": "Hiring & Suppliers",
+    "setup": "Licences & Setup",
+    "launch": "Launch"
   },
   "milestones": [
     {
@@ -22,8 +27,7 @@
       "category": "design",
       "due": "2026-10-03",
       "done": false,
-      "flag": "watch",
-      "note": "Lock the kitchen and counter layout here. Fridge sizes, power points and drainage all depend on it."
+      "note": "Lock the kitchen and counter layout."
     },
     {
       "id": "design-draft-2",
@@ -31,86 +35,69 @@
       "category": "design",
       "due": "2026-10-07",
       "done": false,
-      "flag": "watch",
-      "note": "The chef is only confirmed on 15 Oct. Have your chef candidate review the kitchen and sushi counter before you sign off."
+      "note": "Have the chef candidate check the kitchen and counter layout."
     },
     {
       "id": "design-submit-mgmt",
       "title": "Submit all renovation documents to mall management",
       "category": "design",
-      "due": "2026-10-14",
-      "suggested": "2026-10-08",
+      "due": "2026-10-08",
       "done": false,
-      "flag": "risk",
-      "note": "Mall approval usually takes 1–3 weeks (drawings, contractor insurance, deposit, work permits). Submitting on 14 Oct for a 15 Oct start leaves no time. Ask management for their checklist and turnaround this week, then submit the day after final design."
+      "note": "Ask mall management for their checklist and approval time now."
     },
     {
       "id": "design-reno-start",
       "title": "Renovation starts",
       "category": "design",
       "due": "2026-10-15",
-      "done": false,
-      "flag": "watch",
-      "note": "Depends on management approval. If approval slips, every date after this slips too."
+      "done": false
     },
     {
       "id": "design-deco",
       "title": "Deco purchase completed",
       "category": "design",
       "due": "2026-10-30",
-      "done": false,
-      "flag": "ok",
-      "note": "Order long lead-time pieces (custom lighting, noren, art) earlier."
+      "done": false
     },
     {
       "id": "design-reno-handover",
       "title": "Renovation complete & handover",
       "category": "design",
-      "due": "2026-11-24",
+      "due": "2026-11-30",
       "done": false,
       "added": true,
-      "flag": "risk",
-      "note": "Added. KOL tastings start 1 Dec, so the build must finish about a week earlier for deep cleaning, equipment install and dry runs. That leaves about 5½ weeks of renovation. Typical F&B fit-outs take 8–10 weeks, so ask the contractor to commit to this date in writing."
+      "note": "Get the contractor to commit to this date in writing."
     },
-
     {
       "id": "buy-uniform",
       "title": "Uniforms confirmed",
       "category": "purchase",
       "due": "2026-10-20",
-      "done": false,
-      "flag": "ok",
-      "note": "Fine. Tailoring takes about 2–4 weeks, so uniforms arrive in time for training."
+      "done": false
     },
     {
       "id": "buy-plating",
       "title": "Plating / tableware ordered",
       "category": "purchase",
-      "due": "2026-10-30",
-      "suggested": "2026-10-20",
+      "due": "2026-10-20",
       "done": false,
-      "flag": "risk",
-      "note": "Handmade Japanese ceramics often take 4–8 weeks. The plates are also needed for the menu photoshoot in early November. Order earlier, or buy a few sample pieces for the shoot."
+      "note": "Plates are needed for the early-November photoshoot."
     },
     {
       "id": "buy-china",
       "title": "Cookware & supplies from China confirmed (boxes, rice, etc.)",
       "category": "purchase",
-      "due": "2026-10-30",
-      "suggested": "2026-10-20",
+      "due": "2026-10-20",
       "done": false,
-      "flag": "risk",
-      "note": "Sea freight plus customs takes about 4–6 weeks. Confirming on 30 Oct means the goods land around early December, which is too late for 1 Dec. Confirm earlier or use air freight. Buy rice locally."
+      "note": "Sea freight takes 4–6 weeks, so choose air freight if it's late."
     },
     {
       "id": "buy-fridge",
       "title": "Fridges & sushi display case confirmed",
       "category": "purchase",
-      "due": "2026-11-15",
-      "suggested": "2026-10-07",
+      "due": "2026-11-07",
       "done": false,
-      "flag": "risk",
-      "note": "Too late. Equipment sizes, power and drainage must be in the renovation drawings before building starts. Fix the models with the final design (7 Oct), order by 30 Oct and take delivery around 20 Nov."
+      "note": "Local supplier. Share the models' sizes and power needs with the contractor early."
     },
     {
       "id": "buy-menu-deco",
@@ -118,20 +105,15 @@
       "category": "purchase",
       "due": "2026-11-10",
       "done": false,
-      "added": true,
-      "flag": "watch",
-      "note": "Your plan had no date for this. 10 Nov is suggested so it's ready for the photoshoot and printing."
+      "added": true
     },
-
     {
       "id": "mkt-contact",
       "title": "Business email & phone number set up",
       "category": "marketing",
       "due": "2026-10-31",
-      "suggested": "2026-10-20",
       "done": false,
-      "flag": "watch",
-      "note": "Instagram, the website, Google Maps and KOL outreach all need these first. Set them up earlier."
+      "note": "Instagram, the website and KOL outreach all need these."
     },
     {
       "id": "mkt-website",
@@ -139,8 +121,7 @@
       "category": "marketing",
       "due": "2026-11-01",
       "done": false,
-      "flag": "ok",
-      "note": "Good timing. Make sure the website has a way to book or join a waitlist."
+      "note": "Include a booking or waitlist link."
     },
     {
       "id": "mkt-instagram",
@@ -148,8 +129,7 @@
       "category": "marketing",
       "due": "2026-11-01",
       "done": false,
-      "flag": "watch",
-      "note": "Reserve the handle now. The interior won't be photo-ready until late November, so plan teaser content: the chef, ingredients and behind-the-scenes renovation."
+      "note": "Teaser content: the chef, ingredients, renovation."
     },
     {
       "id": "mkt-photoshoot",
@@ -158,8 +138,7 @@
       "due": "2026-11-12",
       "done": false,
       "added": true,
-      "flag": "watch",
-      "note": "Added. The pre-launch needs real food photos. This needs the chef, plating and suppliers ready."
+      "note": "Needs the chef, plates and suppliers ready."
     },
     {
       "id": "mkt-kol",
@@ -167,8 +146,7 @@
       "category": "marketing",
       "due": "2026-11-15",
       "done": false,
-      "flag": "ok",
-      "note": "Fine for tastings from 1 Dec. Book their tasting slots when you confirm them."
+      "note": "Book their tasting slots from 1 Dec."
     },
     {
       "id": "mkt-reservation",
@@ -177,48 +155,37 @@
       "due": "2026-11-15",
       "done": false,
       "added": true,
-      "flag": "watch",
-      "note": "Added. Omakase seats are limited, so pre-launch traffic needs somewhere to book, and a deposit reduces no-shows."
+      "note": "Take a deposit to cut no-shows."
     },
-
     {
       "id": "hire-chef",
       "title": "Chef confirmed",
       "category": "hiring",
       "due": "2026-10-15",
-      "done": false,
-      "flag": "watch",
-      "note": "OK, but the chef drives the menu, plating, fridges and suppliers. The earlier the better."
+      "done": false
     },
     {
       "id": "hire-manager",
       "title": "CS / Manager hired",
       "category": "hiring",
-      "due": "2026-10-30",
-      "suggested": "2026-10-15",
+      "due": "2026-10-15",
       "done": false,
-      "flag": "risk",
-      "note": "Notice periods in Malaysia are usually about 1 month. Hiring on 30 Oct means a start around 1 Dec, with no time to set up SOPs, bookings or training."
+      "note": "Allows for a 1-month notice period and time to set up SOPs and bookings."
     },
     {
       "id": "hire-waiters",
       "title": "Waiters hired",
       "category": "hiring",
       "due": "2026-10-30",
-      "suggested": "2026-10-23",
       "done": false,
-      "flag": "watch",
-      "note": "Allow for notice periods plus 1–2 weeks of omakase service training before tastings."
+      "note": "Allow for notice periods plus 1–2 weeks of training."
     },
     {
       "id": "hire-suppliers",
       "title": "Supplier accounts opened (fish, rice, sake…)",
       "category": "hiring",
       "due": "2026-11-15",
-      "suggested": "2026-11-01",
-      "done": false,
-      "flag": "watch",
-      "note": "The chef needs product for menu testing and the photoshoot before 15 Nov. Open the fish importer account first."
+      "done": false
     },
     {
       "id": "hire-food-handler",
@@ -227,29 +194,24 @@
       "due": "2026-11-20",
       "done": false,
       "added": true,
-      "flag": "watch",
-      "note": "Added. This is required for food handlers in Malaysia and inspectors check for it."
+      "note": "Required for all food handlers in Malaysia."
     },
     {
       "id": "hire-training",
       "title": "Staff training & dry-run services",
       "category": "hiring",
-      "due": "2026-11-28",
+      "due": "2026-12-05",
       "done": false,
       "added": true,
-      "flag": "watch",
-      "note": "Added. Run at least 2–3 full dry-run services before KOLs sit at the counter."
+      "note": "Run 2–3 full dry-run services before opening."
     },
-
     {
       "id": "setup-licence",
       "title": "DBKL premise & signboard licence applied",
       "category": "setup",
       "due": "2026-10-20",
       "done": false,
-      "added": true,
-      "flag": "watch",
-      "note": "Added. Approval takes several weeks, so apply early. Check with mall management which documents they provide."
+      "added": true
     },
     {
       "id": "setup-liquor",
@@ -257,9 +219,7 @@
       "category": "setup",
       "due": "2026-10-30",
       "done": false,
-      "added": true,
-      "flag": "watch",
-      "note": "Added. Sake pairing is a big part of omakase revenue, and this licence takes weeks."
+      "added": true
     },
     {
       "id": "setup-pos",
@@ -268,18 +228,21 @@
       "due": "2026-11-20",
       "done": false,
       "added": true,
-      "flag": "ok",
-      "note": "Added. Internet line installation can take 2–3 weeks, so book it in early November."
+      "note": "Book the internet line early. Installation takes 2–3 weeks."
     },
-
     {
-      "id": "launch-opening",
-      "title": "Opening — KOL tastings begin",
+      "id": "launch-kol",
+      "title": "KOL tastings begin",
       "category": "launch",
       "due": "2026-12-01",
-      "done": false,
-      "flag": "ok",
-      "note": "Target date."
+      "done": false
+    },
+    {
+      "id": "launch-opening",
+      "title": "Opening — start serving",
+      "category": "launch",
+      "due": "2026-12-07",
+      "done": false
     }
   ]
 }
