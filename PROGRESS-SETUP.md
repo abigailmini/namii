@@ -10,7 +10,12 @@ tools/send_reminders.py    reminder email script (Python, no dependencies)
 .github/workflows/roadmap-reminders.yml   runs the script daily at 8:17am MYT
 ```
 
-## 1. Put the page online at `namiiprogress` (free, ~5 min)
+## 1. Put the page online
+
+**GitHub Pages (current):** once this is merged to `main`, the page is at
+**https://abigailmini.github.io/namii/progress/** (same site as the landing page).
+
+**Or Cloudflare Pages** (lets you add Cloudflare Access to keep it private):
 
 1. https://dash.cloudflare.com → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**
 2. Pick `abigailmini/namii`
@@ -42,7 +47,7 @@ Gmail is used as the sender.
    | `SMTP_PASSWORD` | the 16-character app password |
    | `MAIL_TO` | who receives the reminders, comma-separated (e.g. `davidyangmini@gmail.com, partner@…`) |
 
-   Optional: the **Variables** tab → `SITE_URL` = your final page URL (the default is `https://namiiprogress.pages.dev`).
+   Optional: the **Variables** tab → `SITE_URL` = your final page URL (the default is `https://abigailmini.github.io/namii/progress/`).
 3. Test it: go to **Actions** → **Roadmap reminders** → **Run workflow** (keep "test" ticked).
    You should get an email right away listing the next 14 days.
 
