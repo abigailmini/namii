@@ -1,0 +1,242 @@
+{
+  "project": "NAMII 鮨 — Omakase Opening",
+  "location": "Pavilion Damansara Heights, LG floor",
+  "opening": "2026-12-07",
+  "timezone_offset_hours": 8,
+  "reminders": {
+    "days_before": [
+      7,
+      3,
+      1,
+      0
+    ],
+    "overdue_on_mondays": true
+  },
+  "categories": {
+    "design": "Design & Renovation",
+    "purchase": "Purchasing",
+    "marketing": "Marketing & Social",
+    "hiring": "Hiring & Suppliers",
+    "setup": "Licences & Setup",
+    "launch": "Launch"
+  },
+  "milestones": [
+    {
+      "id": "design-draft-1",
+      "title": "1st draft design confirmed",
+      "category": "design",
+      "due": "2026-10-03",
+      "done": false,
+      "note": "Lock the kitchen and counter layout."
+    },
+    {
+      "id": "design-draft-2",
+      "title": "2nd (final) draft design confirmed",
+      "category": "design",
+      "due": "2026-10-07",
+      "done": false,
+      "note": "Have the chef candidate check the kitchen and counter layout."
+    },
+    {
+      "id": "design-submit-mgmt",
+      "title": "Submit all renovation documents to mall management",
+      "category": "design",
+      "due": "2026-10-08",
+      "done": false,
+      "note": "Ask mall management for their checklist and approval time now."
+    },
+    {
+      "id": "design-reno-start",
+      "title": "Renovation starts",
+      "category": "design",
+      "due": "2026-10-15",
+      "done": false
+    },
+    {
+      "id": "design-deco",
+      "title": "Deco purchase completed",
+      "category": "design",
+      "due": "2026-10-30",
+      "done": false
+    },
+    {
+      "id": "design-reno-handover",
+      "title": "Renovation complete & handover",
+      "category": "design",
+      "due": "2026-11-30",
+      "done": false,
+      "added": true,
+      "note": "Get the contractor to commit to this date in writing."
+    },
+    {
+      "id": "buy-uniform",
+      "title": "Uniforms confirmed",
+      "category": "purchase",
+      "due": "2026-10-20",
+      "done": false
+    },
+    {
+      "id": "buy-plating",
+      "title": "Plating / tableware ordered",
+      "category": "purchase",
+      "due": "2026-10-20",
+      "done": false,
+      "note": "Plates are needed for the early-November photoshoot."
+    },
+    {
+      "id": "buy-china",
+      "title": "Cookware & supplies from China confirmed (boxes, rice, etc.)",
+      "category": "purchase",
+      "due": "2026-10-20",
+      "done": false,
+      "note": "Sea freight takes 4–6 weeks, so choose air freight if it's late."
+    },
+    {
+      "id": "buy-fridge",
+      "title": "Fridges & sushi display case confirmed",
+      "category": "purchase",
+      "due": "2026-11-07",
+      "done": false,
+      "note": "Local supplier. Share the models' sizes and power needs with the contractor early."
+    },
+    {
+      "id": "buy-menu-deco",
+      "title": "Menu design & printing confirmed",
+      "category": "purchase",
+      "due": "2026-11-10",
+      "done": false,
+      "added": true
+    },
+    {
+      "id": "mkt-contact",
+      "title": "Business email & phone number set up",
+      "category": "marketing",
+      "due": "2026-10-31",
+      "done": false,
+      "note": "Instagram, the website and KOL outreach all need these."
+    },
+    {
+      "id": "mkt-website",
+      "title": "Website & marketing live (1-month pre-launch)",
+      "category": "marketing",
+      "due": "2026-11-01",
+      "done": false,
+      "note": "Include a booking or waitlist link."
+    },
+    {
+      "id": "mkt-instagram",
+      "title": "Instagram pre-launch starts",
+      "category": "marketing",
+      "due": "2026-11-01",
+      "done": false,
+      "note": "Teaser content: the chef, ingredients, renovation."
+    },
+    {
+      "id": "mkt-photoshoot",
+      "title": "Menu & chef photoshoot",
+      "category": "marketing",
+      "due": "2026-11-12",
+      "done": false,
+      "added": true,
+      "note": "Needs the chef, plates and suppliers ready."
+    },
+    {
+      "id": "mkt-kol",
+      "title": "KOL / bloggers confirmed",
+      "category": "marketing",
+      "due": "2026-11-15",
+      "done": false,
+      "note": "Book their tasting slots from 7 Dec."
+    },
+    {
+      "id": "mkt-reservation",
+      "title": "Reservation / deposit system live",
+      "category": "marketing",
+      "due": "2026-11-15",
+      "done": false,
+      "added": true,
+      "note": "Take a deposit to cut no-shows."
+    },
+    {
+      "id": "hire-chef",
+      "title": "Chef confirmed",
+      "category": "hiring",
+      "due": "2026-10-15",
+      "done": false
+    },
+    {
+      "id": "hire-manager",
+      "title": "CS / Manager hired",
+      "category": "hiring",
+      "due": "2026-10-15",
+      "done": false,
+      "note": "Allows for a 1-month notice period and time to set up SOPs and bookings."
+    },
+    {
+      "id": "hire-waiters",
+      "title": "Waiters hired",
+      "category": "hiring",
+      "due": "2026-10-30",
+      "done": false,
+      "note": "Allow for notice periods plus 1–2 weeks of training."
+    },
+    {
+      "id": "hire-suppliers",
+      "title": "Supplier accounts opened (fish, rice, sake…)",
+      "category": "hiring",
+      "due": "2026-11-15",
+      "done": false
+    },
+    {
+      "id": "hire-food-handler",
+      "title": "Food handler course & typhoid jab — all staff",
+      "category": "hiring",
+      "due": "2026-11-20",
+      "done": false,
+      "added": true,
+      "note": "Required for all food handlers in Malaysia."
+    },
+    {
+      "id": "hire-training",
+      "title": "Staff training & dry-run services",
+      "category": "hiring",
+      "due": "2026-12-05",
+      "done": false,
+      "added": true,
+      "note": "Run 2–3 full dry-run services before the first KOL seating."
+    },
+    {
+      "id": "setup-licence",
+      "title": "DBKL premise & signboard licence approved",
+      "category": "setup",
+      "due": "2026-11-30",
+      "done": false,
+      "added": true,
+      "note": "Submit by mid-Nov so the inspection can happen right after handover. Check with Pavilion management what they handle."
+    },
+    {
+      "id": "setup-liquor",
+      "title": "Liquor licence applied (if serving sake)",
+      "category": "setup",
+      "due": "2026-10-30",
+      "done": false,
+      "added": true
+    },
+    {
+      "id": "setup-pos",
+      "title": "Utilities, internet line, POS & card terminal ready",
+      "category": "setup",
+      "due": "2026-11-20",
+      "done": false,
+      "added": true,
+      "note": "Book the internet line early. Installation takes 2–3 weeks."
+    },
+    {
+      "id": "launch-opening",
+      "title": "Opening — start serving & KOL tastings",
+      "category": "launch",
+      "due": "2026-12-07",
+      "done": false
+    }
+  ]
+}
