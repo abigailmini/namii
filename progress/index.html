@@ -13,7 +13,7 @@
 <style>
 :root{
   --bg:#ffffff; --surface:#ffffff; --band:#faf6f0; --ink:#2b1b12; --ink-2:#5c4636; --muted:#8c7562;
-  --line:#ece3d6; --line-2:#dccdb8; --accent:#8a5a34; --accent-bg:#f6eee3;
+  --line:#ece3d6; --line-2:#dccdb8; --accent:#2b1b12; --accent-bg:#2b1b12;
   --ok:#3f7a4a; --ok-bg:#e6f2e7; --warn:#9a5b00; --warn-bg:#fdf1dc; --bad:#b3362b; --bad-bg:#fbe6e3;
   --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --jp:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
@@ -42,9 +42,10 @@ header{display:flex;align-items:center;justify-content:space-between;gap:16px;fl
 /* Summary strip */
 .summary{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-top:0;margin-bottom:8px}
 .stat{padding:14px 18px;border-left:1px solid var(--line)}
-.stat:first-child{border-left:0;background:var(--accent-bg)}
+.stat:first-child{border-left:0;background:var(--ink);color:#fff}
+.stat:first-child .label,.stat:first-child .hint{color:#d6c2a9}
 .stat .num{font-size:30px;font-weight:700;line-height:1.1;margin-top:2px;font-variant-numeric:tabular-nums}
-.stat:first-child .num{color:var(--accent)}
+.stat:first-child .num{color:#fff}
 .stat .num small{font-size:16px;color:var(--muted);font-weight:500}
 .stat .hint{font-size:13px;color:var(--muted)}
 
@@ -58,7 +59,8 @@ table.tt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .tt td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
 .tt tr:last-child td{border-bottom:0}
 .tt .c-date{width:118px;white-space:nowrap}
-.tt .c-ws{width:200px;font-size:14px;color:var(--ink-2)}
+.tt .c-ws{width:200px}
+.tt td.c-ws{font-size:14px;color:var(--ink-2)}
 .tt .c-st{width:110px;text-align:right}
 .tt .dd{font-weight:700}
 .tt .dw{color:var(--muted);font-size:14px}
@@ -66,9 +68,8 @@ table.tt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 .tt .note{font-size:14px;color:var(--ink-2);margin-top:2px}
 .tt .rel{font-size:13px;color:var(--muted)}
 .tt .ws-m{display:none;font-size:13px;color:var(--muted);margin-top:2px}
-.tt tr.week td{background:var(--band);padding:8px 14px;font-size:13px;font-weight:700;color:var(--ink-2);border-bottom:1px solid var(--line-2)}
-.tt tr.week td span{float:right;font-weight:500;color:var(--muted)}
-.tt tr.week.now td{background:var(--accent-bg);color:var(--accent)}
+.tt tr.week td{background:var(--ink);padding:8px 14px;font-size:13px;font-weight:700;color:#fff;border-bottom:0}
+.tt tr.week td span{float:right;font-weight:500;color:#d6c2a9}
 .tt tr.done .t{text-decoration:line-through;color:var(--muted)}
 .tt tr.done .note{display:none}
 .tt tr.key .t{color:var(--accent)}
